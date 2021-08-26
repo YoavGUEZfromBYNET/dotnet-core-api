@@ -12,5 +12,11 @@ pipeline {
       }
     }
 
+    stage('Build Image of Docker') {
+      steps {
+        sh 'docker build -t lidorlg/todoapi:${BUILD_ID} .'
+      }
+    }
+
   }
 }
