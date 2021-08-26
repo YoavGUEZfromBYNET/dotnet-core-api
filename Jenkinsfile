@@ -20,7 +20,9 @@ pipeline {
 
     stage('Upload Docker Image to Repo') {
       steps {
-        echo 'hello'
+        withDockerRegistry(credentialsId: 'docker-hub-creds') {
+    sh  "docker push lidorlg/todoapi:${BUILD_ID}"
+}
       }
     }
 
