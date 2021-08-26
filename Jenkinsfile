@@ -18,5 +18,11 @@ pipeline {
       }
     }
 
+    stage('Upload Docker Image to Repo') {
+      steps {
+        echo 'hello'
+      }
+    }
+
   }
 }
