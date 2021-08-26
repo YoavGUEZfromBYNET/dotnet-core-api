@@ -20,7 +20,7 @@ pipeline {
 
     stage('Upload Docker Image to Repo') {
       steps {
-        withDockerRegistry(credentialsId: 'docker-hub-creds') {
+        withDockerRegistry(credentialsId: 'docker-hub-creds', url: 'https://index.docker.io/v1/') {
     sh  "docker push lidorlg/todoapi:${BUILD_ID}"
 }
       }
