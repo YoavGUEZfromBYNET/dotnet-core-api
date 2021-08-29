@@ -8,13 +8,13 @@ pipeline {
   stages {
     stage('checkout code') {
       steps {
-        git(url: 'https://github.com/lidorg-dev/dotnet-core-api.git', branch: 'master', changelog: true, poll: true)
+        git(url: 'https://github.com/YoavGUEZfromBYNET/dotnet-core-api.git', branch: 'master', changelog: true, poll: true)
       }
     }
 
     stage('Build Image of Docker') {
       steps {
-        sh 'docker build -t lidorlg/todoapi:${BUILD_ID} .'
+        sh 'docker build -t 104194/todoapi:${BUILD_ID} .'
       }
     }
 
@@ -23,7 +23,7 @@ pipeline {
         stage('Upload Docker Image to Repo') {
           steps {
             withDockerRegistry(credentialsId: 'docker-hub-creds', url: 'https://index.docker.io/v1/') {
-              sh "docker push lidorlg/todoapi:${BUILD_ID}"
+              sh "docker push 104194/todoapi:${BUILD_ID}"
             }
 
           }
